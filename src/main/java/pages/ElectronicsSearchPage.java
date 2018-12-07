@@ -34,12 +34,7 @@ public class ElectronicsSearchPage extends BasePage {
 
     public void enterSearchWord(String searchWord) {
         waitForInputFieldAndType(searchInputField, searchWord);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-//        waitForElement(searchSuggestion);
+        waitForElement(searchSuggestion);
         selectElementFromOptionsByText(searchSuggestionsOptions, searchWord);
     }
 

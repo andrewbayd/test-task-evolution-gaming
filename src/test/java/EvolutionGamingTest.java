@@ -11,6 +11,7 @@ import static util.Constants.*;
 
 public class EvolutionGamingTest {
     private Navigator navigator = new Navigator();
+    private Header header = new Header();
     private HomePage homePage = new HomePage();
     private ElectronicsPage electronicsPage = new ElectronicsPage();
     private ElectronicsSearchPage electronicsSearchPage = new ElectronicsSearchPage();
@@ -24,7 +25,7 @@ public class EvolutionGamingTest {
 
     @Test
     public void searchTest() {
-        homePage.switchToRussian();
+        header.switchToRussian();
         homePage.openElectronicsPage();
         electronicsPage.openElectronicsSearchPage();
         electronicsSearchPage.enterSearchWord(SEARCH_WORD);
