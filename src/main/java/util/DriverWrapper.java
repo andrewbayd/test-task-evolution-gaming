@@ -3,7 +3,7 @@ package util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverWrapper {
+class DriverWrapper {
     private static final String CHROME_DRIVER_PATH = "./src/main/resources/chromedriver";
 
     private static WebDriver getDriver() {
