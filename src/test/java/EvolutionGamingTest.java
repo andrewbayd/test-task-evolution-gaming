@@ -7,13 +7,12 @@ import util.Navigator;
 
 import java.util.List;
 
-import static util.Constants.*;
+import static util.Constants.TestData.*;
 
 public class EvolutionGamingTest {
     private Navigator navigator = new Navigator();
     private Header header = new Header();
     private HomePage homePage = new HomePage();
-    private ElectronicsPage electronicsPage = new ElectronicsPage();
     private ElectronicsSearchPage electronicsSearchPage = new ElectronicsSearchPage();
     private ElectronicsSearchResultsPage electronicsSearchResultsPage = new ElectronicsSearchResultsPage();
     private FavoritesPage favoritesPage = new FavoritesPage();
@@ -27,7 +26,7 @@ public class EvolutionGamingTest {
     public void searchTest() {
         header.switchToRussian();
         homePage.openElectronicsPage();
-        electronicsPage.openElectronicsSearchPage();
+        header.openElectronicsSearchPage();
         electronicsSearchPage.enterSearchWord(SEARCH_WORD);
         electronicsSearchPage.setMinAndMaxPrice(MIN_PRICE, MAX_PRICE);
         electronicsSearchPage.submitSearch();
@@ -36,7 +35,7 @@ public class EvolutionGamingTest {
         List<String> selectedAdsIds = electronicsSearchResultsPage.selectRandomAdvertisements(ADS_TO_BE_SELECTED_COUNT);
         electronicsSearchResultsPage.addToFavorites();
         electronicsSearchResultsPage.clickOkInAlert();
-        electronicsSearchResultsPage.openFavoritesPage();
+        header.openFavoritesPage();
         List<String> favoritesAdsIds = favoritesPage.getFavoritesAdsIds();
         Assertions.assertThat(selectedAdsIds).isEqualTo(favoritesAdsIds);
     }

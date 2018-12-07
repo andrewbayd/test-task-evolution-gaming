@@ -2,6 +2,7 @@ package util;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import util.Constants.CssAttributes;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +51,7 @@ public class BasePage extends PageFactory {
                 int index = random.nextInt(elements.size());
                 WebElement selectedElement = elements.get(index);
                 selectedElement.click();
-                selectedElementsIds.add(selectedElement.getAttribute("id"));
+                selectedElementsIds.add(selectedElement.getAttribute(CssAttributes.ID));
         }
         Collections.sort(selectedElementsIds);
 
@@ -58,6 +59,6 @@ public class BasePage extends PageFactory {
     }
 
     protected List<String> getElementsIdsSorted(List<WebElement> elements) {
-        return elements.stream().map(e -> e.getAttribute("id")).sorted().collect(Collectors.toList());
+        return elements.stream().map(e -> e.getAttribute(CssAttributes.ID)).sorted().collect(Collectors.toList());
     }
 }

@@ -14,7 +14,6 @@ public class ElectronicsSearchResultsPage extends BasePage {
     private static final String ALL_CHECKBOXES_ON_PAGE_XPATH = "//input[@type='checkbox']";
     private static final String ADD_TO_FAVORITES_BUTTON_XPATH = "//a[@id='a_fav_sel']";
     private static final String ALERT_OK_BUTTON_XPATH = "//a[@id='alert_ok']";
-    private static final String FAVORITES_LINK_XPATH = "//a[@title='Закладки']";
 
     @FindBy(xpath = SORT_BY_PRICE_BUTTON_XPATH)
     private WebElement sortByPriceButton;
@@ -37,9 +36,6 @@ public class ElectronicsSearchResultsPage extends BasePage {
     @FindBy(xpath = ALERT_OK_BUTTON_XPATH)
     private WebElement alertOkButton;
 
-    @FindBy(xpath = FAVORITES_LINK_XPATH)
-    private WebElement favoritesLink;
-
     public void sortResultsByPrice() {
         waitForElementAndClick(sortByPriceButton);
     }
@@ -61,7 +57,4 @@ public class ElectronicsSearchResultsPage extends BasePage {
         waitForElementAndClick(alertOkButton);
     }
 
-    public void openFavoritesPage() {
-        waitForElementAndClick(favoritesLink);
-    }
 }
