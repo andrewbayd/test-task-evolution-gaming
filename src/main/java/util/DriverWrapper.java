@@ -1,15 +1,15 @@
 package util;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 class DriverWrapper {
     private static final String CHROME_DRIVER_PATH = "./src/main/resources/chromedriver";
 
-    private static WebDriver getDriver() {
+    private static EventFiringWebDriver getDriver() {
         System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
-        return new ChromeDriver();
+        return new EventFiringWebDriver(new ChromeDriver());
     }
 
-    static WebDriver driver = getDriver();
+    static EventFiringWebDriver driver = getDriver().register(new WebDriverLogger());
 }
